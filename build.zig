@@ -17,7 +17,7 @@ pub fn build(b: *std.Build) void {
     lib.addIncludePath(.{ .path = "include-generated" });
     lib.addIncludePath(spirv_headers.path("include"));
     lib.addIncludePath(spirv_headers.path("include/spirv/unified1"));
-    lib.installHeadersDirectory("include/spirv-tools", "spirv-tools");
+    lib.installHeadersDirectory(b.path("include/spirv-tools"), "spirv-tools", .{});
     b.installArtifact(lib);
 }
 
